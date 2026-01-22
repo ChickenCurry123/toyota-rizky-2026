@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Corolla Cross Hybrid GR - Toyota Agung Pekanbaru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        background-color: #fcfcfc; 
+        color: #1a1a1a;
+        overflow-x: hidden;
+    }
+    .content-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        border-left: 1px solid #f1f1f1;
+        border-right: 1px solid #f1f1f1;
+    }
+    .section-title {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+        margin-bottom: 24px;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 4px;
+        background-color: #eb0a1e;
+        border-radius: 2px;
+    }
+    .hybrid-gr-card {
+        background: linear-gradient(135deg, #001f3f 0%, #000000 50%, #8b0000 100%);
+        color: white;
+    }
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Reveal Animation Control */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Dropdown Logic untuk File di dalam Folder Unit */
+    .group:hover .dropdown-menu { display: block; }
+    .sub-group:hover .sub-dropdown-menu { display: block; }
+    
+    .nav-link-custom {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+</head>
+<body>
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        <a href="../index.html" class="flex items-center gap-3 border-r border-gray-100 pr-6">
+            <img src="../assets/images/logo-toyota.png" alt="Logo" class="h-10 w-auto">
+            <div class="h-8 w-[1px] bg-gray-200"></div>
+            <span class="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase leading-tight">Agung<br>Sutomo</span>
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-8">
+            <a href="../index.html" class="nav-link-custom text-gray-500 hover:text-red-600 transition">Home</a>
+            
+            <div class="relative group h-20 flex items-center">
+                <button class="nav-link-custom text-red-600 flex items-center gap-1">
+                    Unit <i data-feather="chevron-down" class="w-3 h-3"></i>
+                </button>
+                
+                <div class="dropdown-menu hidden absolute top-full left-0 w-56 bg-white shadow-2xl border border-gray-100 py-4 rounded-b-2xl">
+                    
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center">
+                        <span class="nav-link-custom text-gray-700">Hatchback</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-64 bg-white shadow-2xl border border-gray-100 py-2 rounded-r-2xl flex flex-col h-auto">
+                            <a href="agya.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Agya</a>
+                            <a href="yaris.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Yaris</a>
+                        </div>
+                    </div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+                        <span class="nav-link-custom text-gray-700">MPV</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-64 bg-white shadow-2xl border border-gray-100 py-2 rounded-r-2xl flex flex-col h-auto min-h-max">
+                            <a href="calya.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Calya</a>
+                            <a href="avanza.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Avanza</a>
+                            <a href="veloz.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Veloz</a>
+                            <a href="zenix.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Innova Zenix</a>
+                            <a href="innova-diesel.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Innova Diesel</a>
+                            <a href="voxy.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Voxy</a>
+                            <a href="alphard.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Alphard</a>
+                            <a href="vellfire.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Vellfire</a>
+                            <a href="hiace.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Hiace Commuter</a>
+                        </div>
+                    </div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+                        <span class="nav-link-custom text-gray-700">SUV</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-64 bg-white shadow-2xl border border-gray-100 py-2 rounded-r-2xl flex flex-col h-auto min-h-max">
+                            <a href="raize.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Raize</a>
+                            <a href="rush.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Rush</a>
+                            <a href="yaris-cross.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Yaris Cross</a>
+                            <a href="corolla-cross.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Corolla Cross</a>
+                            <a href="fortuner.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Fortuner</a>
+                        </div>
+                    </div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+                        <span class="nav-link-custom text-gray-700">Sedan</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-64 bg-white shadow-2xl border border-gray-100 py-2 rounded-r-2xl flex flex-col h-auto">
+                            <a href="vios.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Vios</a>
+                            <a href="altis.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Corolla Altis</a>
+                            <a href="camry.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Camry</a>
+                        </div>
+                    </div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+                        <span class="nav-link-custom text-gray-700">Electrical</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-64 bg-white shadow-2xl border border-gray-100 py-2 rounded-r-2xl flex flex-col h-auto min-h-max z-[999]">
+                            <a href="bz4x.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 italic">All New bZ4X</a>
+                            <a href="zenix-ev.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 italic">Innova Zenix Hybrid</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="../testimoni.html" class="nav-link-custom text-gray-500 hover:text-red-600 transition">Testimoni</a>
+            <a href="../pricelist.html" class="nav-link-custom text-gray-500 hover:text-red-600 transition">Pricelist</a>
+            <a href="../profil.html" class="nav-link-custom text-red-600 italic border-l border-gray-100 pl-6">RIZKI VITRA</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://wa.me/+6281371111079" class="bg-[#eb0a1e] text-white px-5 py-2.5 rounded-xl font-bold text-[10px] shadow-lg shadow-red-200 hover:bg-red-700 transition-all uppercase tracking-widest">
+                Hubungi Rizki
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="content-container shadow-sm overflow-hidden">
+    
+    <div class="pt-16 pb-12 text-center px-4 bg-gray-50 reveal" data-aos="fade-down">
+        <div class="flex justify-center gap-2 mb-4">
+            <span class="px-3 py-1 bg-blue-600 text-white text-[9px] font-black rounded-full uppercase tracking-widest" data-aos="fade-right" data-aos-delay="300">Hybrid EV</span>
+            <span class="px-3 py-1 bg-red-600 text-white text-[9px] font-black rounded-full uppercase tracking-widest" data-aos="fade-left" data-aos-delay="300">GR Sport</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 leading-tight" data-aos="zoom-in" data-aos-delay="400">
+            Corolla Cross <span class="text-[#eb0a1e]">Hybrid GR</span>
+        </h1>
+        <p class="text-gray-400 font-bold mt-4 tracking-[0.3em] uppercase text-[10px]" data-aos="fade-up" data-aos-delay="500">Elegant Performance, Real Sensation</p>
+    </div>
+
+    <div class="px-6 mb-16 mt-6 reveal">
+        <div class="rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100" data-aos="zoom-out-up" data-aos-duration="1500">
+            <img src="../assets/images/corolla-cross-banner.jpg" alt="Toyota Corolla Cross Hybrid" class="w-full h-auto transition-transform duration-[3000ms] hover:scale-110">
+        </div>
+    </div>
+
+    <div class="px-8 md:px-16 pb-20">
+        
+        <div class="mb-16 reveal">
+            <h2 class="text-2xl font-extrabold section-title" data-aos="fade-right">Pilihan Varian</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                
+                <div class="p-8 hybrid-gr-card rounded-[2.5rem] shadow-xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <span class="text-[10px] font-black tracking-[0.4em] text-blue-400 block mb-2 uppercase group-hover:translate-x-2 transition-transform duration-500">The Ultimate</span>
+                        <h4 class="text-xl font-black italic text-white group-hover:text-red-500 transition-colors duration-500">HYBRID GR SPORT TYPE</h4>
+                    </div>
+                    
+                    <div class="absolute bottom-4 right-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <i data-feather="zap" class="w-12 h-12 text-white"></i>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-gray-50 border border-gray-100 rounded-[2.5rem] flex flex-col justify-center transition-all duration-500 hover:bg-white hover:shadow-lg hover:border-blue-100 group" data-aos="fade-up" data-aos-delay="400">
+                    <span class="text-[10px] font-black tracking-[0.4em] text-gray-400 block mb-2 uppercase group-hover:text-blue-500 transition-colors">Advanced</span>
+                    <h4 class="text-xl font-black text-gray-700 italic uppercase">HYBRID TYPE</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-16 reveal">
+            <h2 class="text-2xl font-extrabold section-title" data-aos="fade-right">Pilihan Warna</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+                
+                <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-100 transition-all duration-300 hover:bg-white hover:shadow-md hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-8 h-8 rounded-full bg-black shadow-inner transition-transform group-hover:scale-110"></div>
+                    <span class="text-[10px] font-bold text-gray-600 uppercase tracking-tight">Attitude Black Metallic</span>
+                </div>
+
+                <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-100 transition-all duration-300 hover:bg-white hover:shadow-md hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform group-hover:scale-110" style="background: linear-gradient(to bottom, #fff 70%, #000 70%);"></div>
+                    <span class="text-[10px] font-bold text-gray-600 uppercase leading-tight tracking-tight">Platinum White Pearl – Attitude Black</span>
+                </div>
+
+                <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-100 transition-all duration-300 hover:bg-white hover:shadow-md hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform group-hover:scale-110" style="background: linear-gradient(to bottom, #b91c1c 70%, #000 70%);"></div>
+                    <span class="text-[10px] font-bold text-gray-600 uppercase leading-tight tracking-tight">Platinum Red Mica – Attitude Black</span>
+                </div>
+
+            </div>
+            <p class="mt-4 text-[8px] text-gray-400 italic">* Pilihan warna two-tone eksklusif untuk varian GR Sport.</p>
+        </div>
+
+        <div class="mb-16 reveal">
+            <h2 class="text-2xl font-extrabold section-title" data-aos="fade-right">Eksterior Elegan</h2>
+            <p class="text-gray-500 text-sm mb-10 italic" data-aos="fade-up" data-aos-delay="200">
+                "Pergilah dengan kinerja yang elegan. Dominasi desain GR di setiap sudut."
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+                <div class="p-6 bg-white border border-gray-100 rounded-[2rem] shadow-sm text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors duration-500">
+                        <i data-feather="disc" class="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-500"></i>
+                    </div>
+                    <h5 class="text-[10px] font-black uppercase tracking-widest">Velg GR-S 18″</h5>
+                </div>
+
+                <div class="p-6 bg-white border border-gray-100 rounded-[2rem] shadow-sm text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors duration-500">
+                        <i data-feather="sun" class="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-500"></i>
+                    </div>
+                    <h5 class="text-[10px] font-black uppercase tracking-widest">Power Moonroof</h5>
+                </div>
+
+                <div class="p-6 bg-white border border-gray-100 rounded-[2rem] shadow-sm text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors duration-500">
+                        <i data-feather="zap" class="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-500"></i>
+                    </div>
+                    <h5 class="text-[10px] font-black uppercase tracking-widest">Kick Sensor Door</h5>
+                </div>
+            </div>
+
+            <div class="space-y-3 px-2 mb-10 reveal" data-aos="fade-up">
+                <div class="flex items-center gap-4 text-xs font-bold text-gray-700 bg-gray-50 p-4 rounded-2xl transition-all duration-300 hover:bg-red-50 hover:translate-x-2">
+                    <i data-feather="award" class="text-red-600"></i> EXCLUSIVE GR EMBLEM & BLACK OUTER MIRROR
+                </div>
+                <div class="flex items-center gap-4 text-xs font-bold text-gray-700 bg-gray-50 p-4 rounded-2xl transition-all duration-300 hover:bg-red-50 hover:translate-x-2">
+                    <i data-feather="eye" class="text-red-600"></i> RADIANT LED FOG LAMP
+                </div>
+            </div>
+
+            <div class="rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 reveal" data-aos="zoom-in" data-aos-duration="1200">
+                <img src="../assets/images/corolla-cross-exterior.jpg" alt="Corolla Cross Exterior" class="w-full transition-transform duration-[2000ms] hover:scale-105">
+            </div>
+        </div>
+
+       <div class="mb-16 reveal">
+            <h2 class="text-2xl font-extrabold section-title" data-aos="fade-right">Kabin Sensasional</h2>
+            <p class="text-gray-500 text-sm mb-10" data-aos="fade-up" data-aos-delay="200">Dasbor penuh elegan berpadu dengan teknologi pembersih udara untuk kenyamanan tingkat tinggi.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="p-8 bg-gray-900 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden group" data-aos="fade-right" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 transition-opacity group-hover:opacity-20">
+                        <i data-feather="trending-up" class="w-24 h-24"></i>
+                    </div>
+
+                    <h4 class="text-xs font-black text-red-500 uppercase tracking-widest mb-6 italic relative z-10">GR Sport Interior</h4>
+                    <ul class="space-y-4 relative z-10">
+                        <li class="flex items-start gap-4 transition-transform hover:translate-x-2">
+                            <i data-feather="check-circle" class="w-4 h-4 text-red-500 mt-1"></i>
+                            <span class="text-xs font-bold uppercase tracking-wide">Leather Seat with GR-S Logo Emboss</span>
+                        </li>
+                        <li class="flex items-start gap-4 transition-transform hover:translate-x-2">
+                            <i data-feather="video" class="w-4 h-4 text-red-500 mt-1"></i>
+                            <span class="text-xs font-bold uppercase tracking-wide">Digital Video Recorder (DVR)</span>
+                        </li>
+                        <li class="flex items-start gap-4 transition-transform hover:translate-x-2">
+                            <i data-feather="wind" class="w-4 h-4 text-red-500 mt-1"></i>
+                            <span class="text-xs font-bold uppercase tracking-wide">Air Purifier System</span>
+                        </li>
+                    </ul>
+                </div>
+               <div class="p-8 bg-blue-50 rounded-[2.5rem] border border-blue-100 shadow-sm transition-all duration-500 hover:shadow-lg group" data-aos="fade-left" data-aos-delay="400">
+                    <h4 class="text-xs font-black text-blue-600 uppercase tracking-widest mb-6 italic">Advanced Tech</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 transition-transform hover:translate-x-2">
+                            <i data-feather="smartphone" class="w-4 h-4 text-blue-600 mt-1"></i>
+                            <span class="text-xs font-bold text-gray-700 uppercase leading-tight tracking-wide">9″ Head Unit with Wireless Connectivity</span>
+                        </li>
+                        <li class="flex items-start gap-4 transition-transform hover:translate-x-2">
+                            <i data-feather="battery-charging" class="w-4 h-4 text-blue-600 mt-1"></i>
+                            <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">Wireless Charger</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 reveal" data-aos="zoom-in" data-aos-duration="1200">
+                <img src="../assets/images/corolla-cross-interior.jpg" alt="Corolla Cross Interior" class="w-full transition-transform duration-[2000ms] hover:scale-105">
+            </div>
+        </div>
+
+        <div class="mt-20 pt-16 border-t border-gray-100 text-center reveal">
+            <h4 class="text-xl font-black text-gray-900 mb-8 uppercase tracking-tighter italic" data-aos="fade-up">Experience The Future Performance</h4>
+            
+            <div class="max-w-md mx-auto p-12 rounded-[3.5rem] hybrid-gr-card shadow-2xl relative overflow-hidden group" data-aos="zoom-out-up">
+                <div class="absolute top-0 left-0 w-32 h-32 bg-blue-500/20 rounded-full -ml-16 -mt-16 transition-all duration-700 group-hover:scale-150 group-hover:bg-blue-500/30"></div>
+                <div class="absolute bottom-0 right-0 w-32 h-32 bg-red-500/20 rounded-full -mr-16 -mb-16 transition-all duration-700 group-hover:scale-150 group-hover:bg-red-500/30"></div>
+                
+                <h3 class="text-3xl font-black mb-1 relative z-10 italic tracking-tighter text-white">RIZKI VITRA</h3>
+                <p class="text-blue-400 font-bold text-[10px] uppercase tracking-[0.5em] mb-10 relative z-10">Hybrid Specialist Toyota</p>
+                
+                <div class="space-y-4 relative z-10">
+                    <a href="https://wa.me/+6281371111079?text=Halo Bang Rizki, Saya ingin info detail mengenai Corolla Cross Hybrid GR Sport" 
+                       class="flex items-center justify-center gap-4 bg-white text-gray-900 hover:bg-red-600 hover:text-white transition-all duration-500 p-5 rounded-2xl shadow-xl transform hover:-translate-y-1 active:scale-95">
+                        <i data-feather="message-circle" class="w-5 h-5 transition-transform group-hover:rotate-12"></i>
+                        <span class="text-sm font-black uppercase tracking-widest">Konsultasi Hybrid</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="bg-[#0f1115] pt-20 pb-12 mt-24 border-t border-white/5 reveal" data-aos="fade-up" data-aos-duration="1200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+            
+            <div class="md:col-span-5" data-aos="fade-right" data-aos-delay="200">
+                <img src="../assets/images/logo-toyota.png" alt="Logo" class="h-9 brightness-0 invert mb-8 transition-transform duration-500 hover:scale-105">
+                <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                    Dealer resmi Agung Toyota Sutomo. Berkomitmen memberikan standar pelayanan terbaik untuk kebutuhan kendaraan Toyota Anda di wilayah Pekanbaru dan seluruh Riau.
+                </p>
+                <div class="mt-8 flex gap-6">
+                    <a href="https://www.instagram.com/mrhan.dhan?igsh=MTlwbmxwdTdteHA5bw==" target="_blank" class="text-gray-600 hover:text-white transition-all transform hover:-translate-y-1">
+                        <i data-feather="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-white transition-all transform hover:-translate-y-1">
+                        <i data-feather="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-white transition-all transform hover:-translate-y-1">
+                        <i data-feather="youtube" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4" data-aos="fade-up" data-aos-delay="400">
+                <h4 class="text-white font-bold text-[10px] uppercase tracking-[0.3em] mb-10 opacity-40">Kategori Unit</h4>
+                <div class="grid grid-cols-2 gap-y-4">
+                    <a href="zenix.html" class="text-gray-500 hover:text-red-500 text-xs font-semibold transition-colors duration-300">MPV Family</a>
+                    <a href="fortuner.html" class="text-gray-500 hover:text-red-500 text-xs font-semibold transition-colors duration-300">SUV Luxury</a>
+                    <a href="yaris-cross.html" class="text-gray-500 hover:text-red-500 text-xs font-semibold transition-colors duration-300">Compact SUV</a>
+                    <a href="bz4x.html" class="text-gray-500 hover:text-red-500 text-xs font-semibold transition-colors duration-300">Electric Vehicle</a>
+                    <a href="agya.html" class="text-gray-500 hover:text-red-500 text-xs font-semibold transition-colors duration-300">Hatchback</a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3" data-aos="fade-left" data-aos-delay="600">
+                <h4 class="text-white font-bold text-[10px] uppercase tracking-[0.3em] mb-10 opacity-40">Lokasi Dealer</h4>
+                <p class="text-gray-400 text-xs leading-loose font-medium italic">
+                    Jl. Dr. Sutomo No.13, Pekanbaru<br>
+                    Provinsi Riau, 28155
+                </p>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <span class="text-gray-700 text-[10px] font-bold uppercase tracking-[0.4em]">Official Sales Executive</span>
+                <div class="h-4 w-[1px] bg-gray-800"></div>
+                <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest italic">Rizki Vitra</span>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-2">
+                <p class="text-gray-700 text-[9px] font-bold uppercase tracking-[0.2em]">
+                    &copy; 2026 Agung Toyota Sutomo — Pekanbaru, Riau
+                </p>
+                <p class="text-gray-600 text-[8px] uppercase tracking-[0.2em] font-bold">
+                    Designed by <a href="https://www.instagram.com/mrhan.dhan?igsh=MTlwbmxwdTdteHA5bw==" target="_blank" class="text-gray-400 hover:text-red-500 transition-colors border-b border-gray-800 hover:border-red-500 pb-0.5">Muhammad Raihan Ramadhan</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        // 1. Inisialisasi Ikon Feather
+        feather.replace();
+
+        // 2. Inisialisasi AOS (Animate On Scroll)
+        // Disesuaikan dengan durasi standar footer (1200ms)
+        AOS.init({
+            duration: 1200,
+            once: true,
+            easing: 'ease-out-quart',
+            offset: 100
+        });
+
+        // 3. Logika Intersection Observer untuk class 'reveal'
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

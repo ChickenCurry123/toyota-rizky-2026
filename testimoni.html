@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimoni Pelanggan - Rizki Vitra Toyota</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; overflow-x: hidden; }
+    
+    .masonry { 
+        column-count: 2; 
+        column-gap: 1.5rem; 
+        width: 100%;
+    }
+    @media (min-width: 768px) { .masonry { column-count: 3; } }
+
+    .gallery-item { 
+        display: block; 
+        width: 100%;
+        break-inside: avoid; /* Mencegah item terpotong antar kolom */
+        margin-bottom: 1.5rem; 
+        background: #f3f4f6;
+        border-radius: 2rem;
+        overflow: hidden;
+        /* Hardware Acceleration tingkat tinggi agar tidak patah */
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+    }
+
+    .gallery-item img { 
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease-out; /* Lebih pendek agar lebih ringan */
+        backface-visibility: hidden;
+    }
+
+    /* Mencegah pointer-events saat scroll/animasi agar CPU fokus ke gambar */
+    body.aos-animating { pointer-events: none; }
+
+    /* Custom AOS timing yang lebih smooth */
+    [data-aos] {
+        will-change: transform, opacity;
+    }
+</style>
+</head>
+<body>
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100" 
+     data-aos="fade-down" 
+     data-aos-duration="800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        
+        <a href="index.html" class="flex items-center gap-3 group" data-aos="fade-right" data-aos-delay="400">
+            <img src="assets/images/logo-toyota.png" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition-transform">
+            <div class="h-8 w-[1px] bg-gray-200"></div>
+            <span class="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase leading-tight group-hover:text-red-600 transition-colors">
+                Pekanbaru<br>Riau
+            </span>
+        </a>
+
+        <div class="flex items-center gap-6" data-aos="fade-left" data-aos-delay="400">
+            <div class="hidden md:flex items-center gap-8 mr-4">
+                <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-red-600 transition-all hover:-translate-y-0.5 transform">Home</a>
+                <a href="testimoni.html" class="text-[10px] font-black uppercase tracking-widest text-red-600 border-b-2 border-red-600 pb-1">Testimoni</a>
+            </div>
+            
+            <a href="index.html" class="flex items-center gap-2 bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all hover:shadow-lg active:scale-95">
+                <i data-feather="arrow-left" class="w-4 h-4"></i> Kembali
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+        <div class="inline-block px-4 py-1.5 bg-red-50 text-red-600 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-4" 
+             data-aos="fade-down">
+            Trusted Consultant
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 mb-4 uppercase leading-none" 
+            data-aos="fade-up" data-aos-delay="100">
+            Happy <span class="text-red-600">Customers</span>
+        </h1>
+        <p class="text-gray-500 text-sm max-w-lg mx-auto italic leading-relaxed" 
+           data-aos="fade-up" data-aos-delay="200">
+            Bukti nyata kepuasan pelanggan yang telah mempercayakan mobil Toyota impian mereka kepada <strong>Rizki Vitra</strong>.
+        </p>
+    </div>
+
+  <div class="masonry">
+        <script>
+            // Generate 15 Foto Testimoni secara otomatis
+            for(let i=1; i<=15; i++) {
+                // Hitung delay: 100, 200, 300, lalu ulang lagi
+                let delay = (i % 3 === 0) ? 300 : (i % 3 === 2) ? 200 : 100;
+                
+                document.write(`
+                    <div class="gallery-item group relative overflow-hidden rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 bg-white border border-gray-100"
+                         data-aos="fade-up" 
+                         data-aos-delay="${delay}">
+                        <img src="assets/images/testimoni_${i}.jpeg" alt="Penyerahan Unit Toyota Pekanbaru" class="w-full h-auto grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <p class="text-red-500 font-black text-[10px] uppercase tracking-[0.3em] mb-1 italic">Confirmed Delivery</p>
+                                <p class="text-white font-bold text-xs uppercase tracking-widest leading-tight">Terimakasih Atas Kepercayaannya!</p>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+        </script>
+    </div>
+
+  <div class="mt-24 bg-gray-900 rounded-[3.5rem] p-12 md:p-20 text-center text-white relative overflow-hidden" 
+         data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-red-600/20 rounded-full blur-3xl"></div>
+        <div class="relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black mb-6 italic tracking-tighter uppercase leading-none">
+                Wujudkan Mobil <br><span class="text-red-600">Impian Anda</span> Sekarang
+            </h2>
+            <p class="text-gray-400 text-sm mb-10 max-w-md mx-auto" data-aos="fade-up" data-aos-delay="300">
+                Konsultasikan kebutuhan mobil Toyota Anda dengan Rizki Vitra. Harga terbaik, proses cepat, dan bonus melimpah!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://wa.me/+6281371111079" class="flex items-center justify-center gap-3 bg-red-600 text-white px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-xl active:scale-95">
+                    <i data-feather="message-circle" class="w-5 h-5"></i> Hubungi Rizki Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="py-16 text-center border-t border-gray-100 mt-20 overflow-hidden" 
+        data-aos="fade-up" 
+        data-aos-duration="1000"
+        data-aos-offset="50">
+    
+    <div class="mb-6 opacity-30 transform transition-transform hover:scale-110 duration-500" 
+         data-aos="zoom-in" 
+         data-aos-delay="200">
+        <img src="assets/images/logo-toyota.png" alt="Logo" class="h-6 mx-auto">
+    </div>
+
+    <p class="text-gray-400 text-[9px] font-bold uppercase tracking-[0.5em]" 
+       data-aos="fade-up" 
+       data-aos-delay="400">
+        &copy; 2026 Toyota Agung Pekanbaru - Rizki Vitra Professional Sales
+    </p>
+
+    <div class="mt-4" data-aos="fade-up" data-aos-delay="500">
+        <a href="https://www.instagram.com/mrhan.dhan?igsh=MTlwbmxwdTdteHA5bw==" 
+           target="_blank" 
+           class="text-gray-300 hover:text-red-600 text-[8px] font-bold uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-2 group">
+            <span>Powered by</span>
+            <span class="bg-gray-50 px-2 py-1 rounded text-gray-400 group-hover:text-red-600 transition-colors">
+                M. Raihan Ramadhan
+            </span>
+        </a>
+    </div>
+
+    <div class="mt-8 flex justify-center gap-6" data-aos="fade-up" data-aos-delay="600">
+        <a href="https://wa.me/+6281371111079" class="text-gray-300 hover:text-red-600 transition-colors">
+            <i data-feather="message-circle" class="w-4 h-4"></i>
+        </a>
+        <a href="#" class="text-gray-300 hover:text-red-600 transition-colors">
+            <i data-feather="instagram" class="w-4 h-4"></i>
+        </a>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+<script>
+    feather.replace();
+
+    // Inisialisasi awal dengan durasi lebih cepat agar terasa responsif
+    AOS.init({
+        duration: 600, 
+        once: true,
+        offset: 50,
+        easing: 'ease-out-quad',
+    });
+
+    const grid = document.querySelector('.masonry');
+    if (grid) {
+        // Gunakan imagesLoaded dengan metode 'always' (setelah semua gambar beres)
+        imagesLoaded(grid).on('always', function() {
+            // Memberikan waktu browser untuk 'bernapas' setelah render gambar
+            setTimeout(function() {
+                AOS.refresh();
+                console.log('Performa dioptimalkan!');
+            }, 200);
+        });
+    }
+</script>
+</body>
+</html>

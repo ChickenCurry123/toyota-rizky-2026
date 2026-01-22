@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Agung Pekanbaru - Official Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #fff; }
+
+        #kategori-unit {
+    scroll-margin-top: 100px; /* Sesuaikan dengan tinggi navbar Anda */
+}
+       /* Update CSS Typewriter */
+.typewriter {
+    display: inline-block;
+    overflow: hidden; 
+    border-right: 3px solid #eb0a1e;
+    white-space: nowrap; 
+    margin: 0;
+    max-width: fit-content;
+    
+    /* SOLUSI HURUF TERPOTONG: */
+    line-height: 1.3;      /* Menambah tinggi baris agar ekor huruf aman */
+    padding-bottom: 10px;  /* Memberi ruang ekstra di bawah kaki huruf */
+    
+    animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+}
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #eb0a1e; } }
+
+        /* FLOATING ANIMATION */
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* NAVBAR HOVER */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #eb0a1e;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .product-item {
+    transition: all 0.5s ease-in-out;
+
+
+}
+.product-item.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+}
+.tab-active {
+    background-color: #ef4444 !important; /* Warna merah Toyota */
+    color: white !important;
+    box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
+}
+/* Desktop Dropdown Logic */
+    .group:hover .dropdown-menu { display: block; }
+    .sub-group:hover .sub-dropdown-menu { display: block; }
+    
+    .nav-link-custom {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    html {
+  scroll-behavior: smooth;
+}
+
+/* Efek zoom halus saat gambar mobil di-hover */
+.card-image-container img {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-image-container:hover img {
+  transform: scale(1.05);
+}
+/* Media Query khusus untuk layar HP */
+@media (max-width: 640px) {
+    /* Mengatur padding container agar tidak terlalu mepet ke pinggir layar */
+    .max-w-6xl, .max-w-7xl {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    /* Mengecilkan judul utama yang terlalu besar */
+    h1.text-4xl.md\:text-6xl {
+        font-size: 2.25rem !important; /* Dari 4xl ke 2.25rem agar lebih pas */
+        line-height: 1.1;
+    }
+
+    /* Mengecilkan teks sub-judul */
+    h2.text-lg.md\:text-2xl {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Menyesuaikan Profile Card agar tidak terlalu kaku */
+    .profile-card {
+        border-radius: 1.5rem !important;
+        margin-top: 1rem;
+    }
+
+    /* Mengecilkan ukuran badge ID Karyawan */
+    .id-badge {
+        padding: 0.75rem 1.25rem !important;
+        border-radius: 1rem !important;
+    }
+    .id-badge .text-lg {
+        font-size: 1rem !important;
+    }
+
+    /* Mengecilkan tombol agar proporsional */
+    .group.bg-red-600.text-white, 
+    .bg-white.border-2.border-gray-100 {
+        padding: 0.85rem 1.5rem !important;
+        font-size: 0.7rem !important;
+        border-radius: 1rem !important;
+    }
+
+    /* Merapikan bagian statistik agar teks tidak bertumpuk */
+    #count-sold, #count-rate {
+        font-size: 1.875rem !important; /* 3xl */
+    }
+    .text-\[10px\].font-extrabold {
+        font-size: 7px !important;
+        letter-spacing: 0.2em !important;
+    }
+}
+    </style>
+</head>
+<body>
+
+
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 border-r border-gray-100 pr-6">
+            <img src="assets/images/logo-toyota.png" alt="Logo" class="h-10 w-auto">
+            <div class="h-8 w-[1px] bg-gray-200"></div>
+            <span class="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase">Pekanbaru<br>Riau</span>
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-8">
+            <a href="index.html" class="nav-link-custom text-gray-900 font-bold">Home</a>
+            
+            <div class="relative group h-20 flex items-center">
+                <button class="nav-link-custom text-gray-500 group-hover:text-red-600 flex items-center gap-1">
+                    Unit <i data-feather="chevron-down" class="w-3 h-3"></i>
+                </button>
+                
+                <div class="dropdown-menu hidden absolute top-full left-0 w-56 bg-white shadow-2xl border border-gray-100 py-4 rounded-b-2xl">
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center">
+                        <span class="nav-link-custom text-gray-700 text-sm">Hatchback</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-56 bg-white shadow-2xl border border-gray-100 py-4 rounded-r-2xl">
+                            <a href="unit/agya.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Agya</a>
+                            <a href="unit/yaris.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Yaris</a>
+                        </div>
+                    </div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+                        <span class="nav-link-custom text-gray-700 text-sm">MPV</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-64 bg-white shadow-2xl border border-gray-100 py-2 rounded-r-2xl flex flex-col">
+                            <a href="unit/calya.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">New Calya</a>
+                            <a href="unit/avanza.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Avanza</a>
+                            <a href="unit/veloz.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Veloz</a>
+                            <a href="unit/zenix.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Innova Zenix</a>
+                            <a href="unit/innova-diesel.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Innova Diesel</a>
+                            <a href="unit/voxy.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Voxy</a>
+                            <a href="unit/alphard.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Alphard</a>
+                            <a href="unit/vellfire.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New Vellfire</a>
+                            <a href="unit/hiace.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">Hiace Commuter</a>
+                        </div>
+                    </div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+    <span class="nav-link-custom text-gray-700 text-sm">SUV</span>
+    <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+    <div class="sub-dropdown-menu hidden absolute top-0 left-full w-max min-w-[250px] bg-white shadow-2xl border border-gray-100 py-4 rounded-r-2xl flex flex-col">
+        <a href="unit/raize.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">Raize</a>
+        <a href="unit/rush.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">New Rush</a>
+        <a href="unit/yaris-cross.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">Yaris Cross</a>
+        <a href="unit/fortuner.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">New Fortuner</a>
+        <a href="unit/corolla-cross.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">Corolla Cross</a>
+    </div>
+</div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+    <span class="nav-link-custom text-gray-700 text-sm">Sedan</span>
+    <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+    <div class="sub-dropdown-menu hidden absolute top-0 left-full w-max min-w-[220px] bg-white shadow-2xl border border-gray-100 py-4 rounded-r-2xl flex flex-col">
+        <a href="unit/vios.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">All New Vios</a>
+        <a href="unit/altis.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">All New Corolla Altis</a>
+        <a href="unit/camry.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50 whitespace-nowrap">All New Camry</a>
+    </div>
+</div>
+
+                    <div class="relative sub-group px-6 py-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center border-t border-gray-50">
+                        <span class="nav-link-custom text-gray-700 text-sm">Electrical</span>
+                        <i data-feather="chevron-right" class="w-3 h-3 text-gray-400"></i>
+                        <div class="sub-dropdown-menu hidden absolute top-0 left-full w-56 bg-white shadow-2xl border border-gray-100 py-4 rounded-r-2xl">
+                             <a href="unit/bz4x.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New bZ4X</a>
+                            <a href="unit/zenix-ev.html" class="block px-6 py-2 nav-link-custom text-red-600 hover:bg-red-50">All New zenix-ev</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="testimoni.html" class="nav-link-custom text-gray-500 hover:text-red-600">Testimoni</a>
+            <a href="pricelist.html" class="nav-link-custom text-gray-500 hover:text-red-600">Pricelist</a>
+            <a href="profil.html" class="nav-link-custom text-red-600 italic border-l border-gray-100 pl-6 font-bold">RIZKI VITRA</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://wa.me/+6281371111079" class="hidden sm:flex items-center gap-2 text-gray-700 font-bold text-[10px] uppercase tracking-wider hover:text-red-600 transition">
+                <i data-feather="phone" class="w-3 h-3 text-red-600"></i> 0813-7111-1079
+            </a>
+            <button class="lg:hidden p-2 text-gray-600" onclick="toggleMobileMenu()">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-2xl z-50 overflow-y-auto max-h-[80vh]">
+        <div class="flex flex-col p-6 space-y-2">
+            <a href="index.html" class="py-3 px-4 text-gray-900 font-bold border-b border-gray-50">Home</a>
+            
+            <p class="px-4 pt-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">Daftar Unit Toyota</p>
+            
+            <details class="group">
+                <summary class="flex justify-between items-center list-none py-3 px-4 text-gray-700 font-semibold hover:bg-gray-50 rounded-xl cursor-pointer">
+                    Hatchback <i data-feather="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                </summary>
+                <div class="pl-8 flex flex-col space-y-3 py-2 border-l-2 border-red-500 ml-4">
+                    <a href="unit/agya.html" class="text-gray-600 text-sm">New Agya</a>
+                    <a href="unit/yaris.html" class="text-gray-600 text-sm">New Yaris</a>
+                </div>
+            </details>
+
+            <details class="group">
+                <summary class="flex justify-between items-center list-none py-3 px-4 text-gray-700 font-semibold hover:bg-gray-50 rounded-xl cursor-pointer">
+                    MPV <i data-feather="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                </summary>
+                <div class="pl-8 flex flex-col space-y-3 py-2 border-l-2 border-red-500 ml-4">
+                    <a href="unit/calya.html" class="text-gray-600 text-sm">New Calya</a>
+                    <a href="unit/avanza.html" class="text-gray-600 text-sm">All New Avanza</a>
+                    <a href="unit/veloz.html" class="text-gray-600 text-sm">All New Veloz</a>
+                    <a href="unit/zenix.html" class="text-gray-600 text-sm">Innova Zenix</a>
+                    <a href="unit/innova-diesel.html" class="text-gray-600 text-sm">Innova Diesel</a>
+                    <a href="unit/voxy.html" class="text-gray-600 text-sm">All New Voxy</a>
+                    <a href="unit/alphard.html" class="text-gray-600 text-sm">All New Alphard</a>
+                    <a href="unit/vellfire.html" class="text-gray-600 text-sm">All New Vellfire</a>
+                    <a href="unit/hiace.html" class="text-gray-600 text-sm">Hiace Commuter</a>
+                </div>
+            </details>
+
+            <details class="group">
+                <summary class="flex justify-between items-center list-none py-3 px-4 text-gray-700 font-semibold hover:bg-gray-50 rounded-xl cursor-pointer">
+                    SUV <i data-feather="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                </summary>
+                <div class="pl-8 flex flex-col space-y-3 py-2 border-l-2 border-red-500 ml-4">
+                    <a href="unit/raize.html" class="text-gray-600 text-sm">Raize</a>
+                    <a href="unit/rush.html" class="text-gray-600 text-sm">New Rush</a>
+                    <a href="unit/yaris-cross.html" class="text-gray-600 text-sm">Yaris Cross</a>
+                    <a href="unit/fortuner.html" class="text-gray-600 text-sm">New Fortuner</a>
+                    <a href="unit/corolla-cross.html" class="text-gray-600 text-sm">Corolla Cross</a>
+                </div>
+            </details>
+
+             <details class="group">
+                <summary class="flex justify-between items-center list-none py-3 px-4 text-gray-700 font-semibold hover:bg-gray-50 rounded-xl cursor-pointer">
+                    Sedan <i data-feather="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                </summary>
+                <div class="pl-8 flex flex-col space-y-3 py-2 border-l-2 border-red-500 ml-4">
+                    <a href="unit/vios.html" class="text-gray-600 text-sm">vios</a>
+                    <a href="unit/altis.html" class="text-gray-600 text-sm">New altis</a>
+                    <a href="unit/camry.html" class="text-gray-600 text-sm">new camry</a>
+                </div>
+            </details>
+
+             <details class="group">
+                <summary class="flex justify-between items-center list-none py-3 px-4 text-gray-700 font-semibold hover:bg-gray-50 rounded-xl cursor-pointer">
+                    Electrical <i data-feather="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                </summary>
+                <div class="pl-8 flex flex-col space-y-3 py-2 border-l-2 border-red-500 ml-4">
+                    <a href="unit/bz4x.html" class="text-gray-600 text-sm">new bZ4X</a>
+                    <a href="unit/zenix-ev.html" class="text-gray-600 text-sm">New zenix-ev</a>
+                </div>
+            </details>
+
+            <a href="testimoni.html" class="py-3 px-4 text-gray-600 font-medium">Testimoni</a>
+            <a href="pricelist.html" class="py-3 px-4 text-gray-600 font-medium border-b border-gray-50">Pricelist</a>
+            <a href="profil.html" class="py-4 px-4 text-red-600 italic font-black text-xl tracking-tighter">RIZKI VITRA</a>
+        </div>
+    </div>
+</nav>
+</nav>
+
+<style>
+    /* Menghilangkan tanda panah bawaan browser pada summary */
+    summary::-webkit-details-marker { display: none; }
+    
+    /* Efek hover untuk Desktop Dropdown */
+    @media (min-width: 1024px) {
+        .group:hover .dropdown-menu { display: block; }
+        .sub-group:hover .sub-dropdown-menu { display: flex; }
+    }
+</style>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+</script>
+
+<script>
+    // Script untuk buka-tutup menu di HP
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+</script>    
+
+<section class="relative min-h-[90vh] flex items-center bg-[#fcfcfc] overflow-hidden">
+    <div data-aos="zoom-out" data-aos-duration="2000" class="absolute top-0 right-0 w-[600px] h-[600px] bg-red-100/40 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+    <div data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="300" class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/50 rounded-full blur-[100px] -ml-32 -mb-32"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            
+            <div class="md:w-1/2 text-center md:text-left">
+                <div data-aos="fade-right" data-aos-delay="200" class="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-bold tracking-widest text-red-700 uppercase bg-red-100 rounded-full">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                    </span>
+                    Official Sales Executive Toyota
+                </div>
+
+                <h1 data-aos="fade-up" data-aos-delay="400" 
+    class="text-3xl sm:text-4xl md:text-7xl font-black text-gray-900 leading-[1.2] md:leading-[1.1] mb-6 tracking-tighter px-2 md:px-0">
+    Miliki Toyota <br> 
+    <span class="typewriter text-[#eb0a1e]">Impian Anda Besok</span>
+</h1>
+
+                <p data-aos="fade-up" data-aos-delay="600" class="text-gray-500 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                    Dapatkan penawaran eksklusif, bunga mulai 0%, dan proses approval kilat hanya melalui Rizki Vitra di Agung Toyota Pekanbaru - Riau.
+                </p>
+
+                <div data-aos="fade-up" data-aos-delay="800" class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a href="#kategori-unit" class="bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl hover:bg-red-600 flex items-center gap-3">
+                        Lihat Katalog <i data-feather="arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/+6281371111079" class="group flex items-center gap-3 px-6 py-5 font-bold text-gray-700 hover:text-red-600 transition">
+                        <div class="p-3 bg-gray-100 group-hover:bg-red-50 rounded-xl transition">
+                            <i data-feather="message-circle" class="w-5 h-5 text-red-600"></i>
+                        </div>
+                        Tanya Promo
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-8 mt-16 pt-10 border-t border-gray-100">
+                    <div data-aos="fade-up" data-aos-delay="1000">
+                        <p class="text-3xl font-black text-gray-900">0%</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Bunga Kredit</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="1100">
+                        <p class="text-3xl font-black text-gray-900">24h</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Proses Approval</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="1200">
+                        <p class="text-3xl font-black text-gray-900">100+</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Unit Ready</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="500">
+                <div class="relative z-10 animate-float">
+                    <div class="rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white ring-1 ring-gray-100 transition-transform duration-700 hover:scale-105">
+                        <img src="assets/images/voxy-banner.jpg" alt="Toyota Hero" class="w-full h-auto">
+                    </div>
+                    
+                    <div data-aos="zoom-in" data-aos-delay="1400" class="absolute -bottom-10 -left-10 glass-card p-6 rounded-3xl shadow-2xl z-20">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-green-500 p-2 rounded-full text-white">
+                                <i data-feather="check" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-gray-400 uppercase">Promo Minggu Ini</p>
+                                <p class="text-xl font-black text-gray-800 tracking-tight">DP Mulai 10 JT-an</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="kategori-unit" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-black text-gray-900 tracking-tight">Cari Berdasarkan <span class="text-red-600">Kategori</span></h2>
+            <p class="mt-4 text-gray-500 font-medium">Temukan unit Toyota yang paling pas dengan kebutuhan mobilitas Anda.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div class="group p-8 bg-gray-50 rounded-[2rem] text-center border border-transparent hover:border-red-200 hover:bg-white hover:shadow-xl transition-all duration-500" 
+                 data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-100 transition-transform duration-500 group-hover:rotate-12">
+                    <i data-feather="box" class="text-white"></i>
+                </div>
+                <h3 class="font-bold text-gray-900">Hatchback</h3>
+            </div>
+
+            <div class="group p-8 bg-gray-50 rounded-[2rem] text-center border border-transparent hover:border-red-200 hover:bg-white hover:shadow-xl transition-all duration-500"
+                 data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-100 transition-transform duration-500 group-hover:rotate-12">
+                    <i data-feather="users" class="text-white"></i>
+                </div>
+                <h3 class="font-bold text-gray-900">MPV</h3>
+            </div>
+
+            <div class="group p-8 bg-gray-50 rounded-[2rem] text-center border border-transparent hover:border-red-200 hover:bg-white hover:shadow-xl transition-all duration-500"
+                 data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-100 transition-transform duration-500 group-hover:rotate-12">
+                    <i data-feather="trending-up" class="text-white"></i>
+                </div>
+                <h3 class="font-bold text-gray-900">SUV</h3>
+            </div>
+
+            <div class="group p-8 bg-gray-50 rounded-[2rem] text-center border border-transparent hover:border-red-200 hover:bg-white hover:shadow-xl transition-all duration-500"
+                 data-aos="fade-up" data-aos-delay="400">
+                <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-100 transition-transform duration-500 group-hover:rotate-12">
+                    <i data-feather="minus" class="text-white"></i>
+                </div>
+                <h3 class="font-bold text-gray-900">Sedan</h3>
+            </div>
+
+            <div class="group p-8 bg-gray-50 rounded-[2rem] text-center border border-transparent hover:border-red-200 hover:bg-white hover:shadow-xl transition-all duration-500"
+                 data-aos="fade-up" data-aos-delay="500">
+                <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-100 transition-transform duration-500 group-hover:rotate-12">
+                    <i data-feather="zap" class="text-white"></i>
+                </div>
+                <h3 class="font-bold text-gray-900">Electrical</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="products" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-black text-gray-900 tracking-tight">Katalog <span class="text-red-600">Unit</span></h2>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="200">
+            <button onclick="filterSelection('hatchback')" class="tab-btn px-8 py-3 rounded-2xl font-bold bg-white text-gray-600 border border-gray-100 shadow-sm transition-all">Hatchback</button>
+            <button onclick="filterSelection('mpv')" class="tab-btn px-8 py-3 rounded-2xl font-bold bg-white text-gray-600 border border-gray-100 shadow-sm transition-all">MPV</button>
+            <button onclick="filterSelection('suv')" class="tab-btn px-8 py-3 rounded-2xl font-bold bg-white text-gray-600 border border-gray-100 shadow-sm transition-all">SUV</button>
+            <button onclick="filterSelection('sedan')" class="tab-btn px-8 py-3 rounded-2xl font-bold bg-white text-gray-600 border border-gray-100 shadow-sm transition-all">Sedan</button>
+            <button onclick="filterSelection('electrical')" class="tab-btn px-8 py-3 rounded-2xl font-bold bg-white text-gray-600 border border-gray-100 shadow-sm transition-all">Electrical</button>
+        </div>
+
+        <div id="unit-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="product-item hatchback group bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/agya.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Agya</h3>
+        <a href="unit/agya.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+            <div class="product-item hatchback group bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+     
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/yaris-exterior.jpg" class="max-h-full">
+    </div>
+    
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">All New Yaris</h3>
+        <a href="unit/yaris.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">
+            Lihat Unit
+        </a>
+    </div>
+</div>
+
+            <div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+     
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/calya-exterior.png" class="max-h-full">
+    </div>
+    
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Calya</h3>
+        <a href="unit/calya.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">
+            Lihat Unit
+        </a>
+    </div>
+</div>
+           <div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/avanza-banner.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Avanza</h3>
+        <a href="unit/avanza.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/veloz-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Veloz</h3>
+        <a href="unit/veloz.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+           <div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/zenix-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Innova Zenix</h3>
+        <a href="unit/zenix.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/innova-diesel-banner.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">Innova Diesel</h3>
+        <a href="unit/innova-diesel.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+            <div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/hiace-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New HiAce</h3>
+        <a href="unit/hiace.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/voxy-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">All New Voxy</h3>
+        <a href="unit/voxy.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+            <div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/alphard-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Alphard</h3>
+        <a href="unit/alphard.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item mpv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/vellfire-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Vellfire</h3>
+        <a href="unit/vellfire.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+           <div class="product-item suv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/yaris-cross-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">Yaris Cross</h3>
+        <a href="unit/yaris-cross.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item suv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/fortuner-banner.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">Fortuner</h3>
+        <a href="unit/fortuner.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+            <div class="product-item suv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/raize-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Raize</h3>
+        <a href="unit/raize.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item suv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/rush-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Rush</h3>
+        <a href="unit/rush.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+            <div class="product-item suv group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/corolla-cross-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">Corolla Cross</h3>
+        <a href="unit/corolla-cross.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item sedan group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/vios-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Vios</h3>
+        <a href="unit/vios.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+           <div class="product-item sedan group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/altis-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">Corolla Altis</h3>
+        <a href="unit/altis.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item sedan group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="100">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/camry-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">New Camry</h3>
+        <a href="unit/camry.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+            <div class="product-item electrical group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="200">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/bz4x-exterior.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">bZ4X</h3>
+        <a href="unit/bz4x.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+
+<div class="product-item electrical group hidden bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all" 
+     data-aos="fade-up" 
+     data-aos-delay="300">
+    <div class="h-48 flex items-center justify-center mb-6">
+        <img src="assets/images/zenix-banner.jpg" class="max-h-full">
+    </div>
+    <div class="text-center">
+        <h3 class="text-2xl font-black mb-6">Zenix Hybrid</h3>
+        <a href="unit/zenix-ev.html" class="block w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-red-600 text-center">Lihat Unit</a>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-[#0a0a0a] pt-24 pb-12 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+            <div class="md:col-span-4" data-aos="fade-right" data-aos-delay="100">
+                <img src="assets/images/logo-toyota.png" alt="Logo" class="h-12 brightness-0 invert mb-8">
+                <p class="text-gray-400 leading-relaxed font-medium text-sm mb-8 pr-10">
+                    Dealer resmi Agung Toyota Sutomo Pekanbaru. Solusi berkendara terbaik dengan pelayanan Sales Executive yang profesional dan transparan.
+                </p>
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-gray-300 text-[10px] font-bold uppercase tracking-widest">Update 2026 - OTR Riau</span>
+                </div>
+            </div>
+
+            <div class="md:col-span-2" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-white font-bold uppercase tracking-[0.2em] text-[11px] mb-8 border-l-2 border-red-600 pl-4">Kategori Unit</h4>
+                <ul class="space-y-4">
+                    <li><a href="unit/zenix.html" class="text-gray-500 hover:text-white transition-all text-sm font-medium flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-[1px] bg-red-600 transition-all"></span>MPV</a></li>
+                    <li><a href="unit/fortuner.html" class="text-gray-500 hover:text-white transition-all text-sm font-medium flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-[1px] bg-red-600 transition-all"></span>SUV</a></li>
+                    <li><a href="unit/bz4x.html" class="text-gray-500 hover:text-white transition-all text-sm font-medium flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-[1px] bg-red-600 transition-all"></span>EV & Hybrid</a></li>
+                    <li><a href="pricelist.html" class="text-red-500 hover:text-red-400 transition-all text-sm font-bold italic">Cek Pricelist 2026</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-white font-bold uppercase tracking-[0.2em] text-[11px] mb-8 border-l-2 border-red-600 pl-4">Layanan</h4>
+                <ul class="space-y-4">
+                    <li>
+    <a href="pricelist.html" class="text-gray-500 hover:text-white transition-all text-sm font-medium">Simulasi Kredit</a>
+</li>
+<li>
+    <a href="https://wa.me/+6281371111079?text=Halo%20Admin%2C%20saya%20ingin%20tanya%20mengenai%20Trade-in%20Service" target="_blank" class="text-gray-500 hover:text-white transition-all text-sm font-medium">Trade-in Service</a>
+</li>
+<li>
+    <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20melakukan%20Booking%20Service" target="_blank" class="text-gray-500 hover:text-white transition-all text-sm font-medium">Booking Service</a>
+</li>
+                    <li><a href="testimoni.html" class="text-gray-500 hover:text-white transition-all text-sm font-medium">Testimoni Pelanggan</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 bg-white/5 p-8 rounded-[2rem] border border-white/10 relative overflow-hidden group" 
+                 data-aos="fade-left" data-aos-delay="400">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-red-600/10 rounded-full blur-3xl transition-all group-hover:bg-red-600/20"></div>
+                
+                <h4 class="text-white font-bold uppercase tracking-[0.2em] text-[11px] mb-6">Sales Executive</h4>
+                <p class="text-2xl text-white font-black mb-1">RIZKI VITRA</p>
+                <p class="text-red-500 font-bold text-xs uppercase tracking-widest mb-6">Agung Toyota Sutomo</p>
+                
+                <div class="space-y-4 mb-8">
+                    <a href="https://wa.me/+6281371111079" class="flex items-center gap-4 text-gray-300 hover:text-white transition group/item">
+                        <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-red-600 transition-colors">
+                            <i data-feather="phone" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-bold text-sm">0813-7111-1079</span>
+                    </a>
+                    <div class="flex items-center gap-4 text-gray-300">
+                        <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                            <i data-feather="map-pin" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-medium text-[11px] leading-tight text-gray-400">Jl. Dr. Sutomo No.13,<br>Kota Pekanbaru, Riau</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all scale-100 hover:scale-110">
+                        <i data-feather="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all scale-100 hover:scale-110">
+                        <i data-feather="facebook" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 hover:bg-[#25D366] hover:text-white transition-all scale-100 hover:scale-110">
+                        <i data-feather="message-circle" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6" 
+             data-aos="fade-up" data-aos-delay="500" data-aos-anchor-placement="top-bottom">
+            
+            <p class="text-gray-600 text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+                © 2026 Toyota Agung Pekanbaru — Rizki Vitra
+            </p>
+
+            <a href="https://www.instagram.com/mrhan.dhan?igsh=MTlwbmxwdTdteHA5bw==" target="_blank" class="group flex items-center gap-3">
+                <span class="text-gray-600 text-[10px] font-bold uppercase tracking-[0.2em]">Powered by</span>
+                <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg border border-white/5 group-hover:border-red-600/50 group-hover:bg-white/10 transition-all">
+                    <span class="text-gray-400 group-hover:text-white text-[10px] font-black uppercase tracking-widest transition-colors">
+                        PR Media
+                    </span>
+                    <i data-feather="external-link" class="w-3 h-3 text-gray-600 group-hover:text-red-500 transition-colors"></i>
+                </div>
+            </a>
+
+            <div class="flex gap-8">
+                <a href="#" class="text-gray-600 hover:text-gray-400 text-[10px] font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-400 text-[10px] font-bold uppercase tracking-widest transition-colors">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+<script>
+    // Memastikan feather icon tetap ter-render jika ada konten baru
+    feather.replace();
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Durasi animasi (1 detik)
+    once: true,     // Animasi cuma jalan sekali saat di-scroll
+    offset: 100,    // Animasi mulai muncul 100px sebelum elemen terlihat
+    easing: 'ease-in-out' // Transisi halus khas Atlas 988
+  });
+</script>
+</body>
+</html>
